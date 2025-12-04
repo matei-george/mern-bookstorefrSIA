@@ -161,7 +161,7 @@ const ProductAdmin = () => {
 
       try {
          const token = localStorage.getItem("adminToken");
-         const url = editingProduct ? `http://localhost:3000/api/admin/products/${editingProduct.id}` : "http://localhost:3000/api/admin/products";
+         const url = editingProduct ? `<API_URL />/api/admin/products/${editingProduct.id}` : `<API_URL />/api/admin/products`;
 
          const productData = {
             ...formData,
@@ -206,7 +206,7 @@ const ProductAdmin = () => {
 
       try {
          const token = localStorage.getItem("adminToken");
-         const response = await fetch(`http://localhost:3000/api/admin/products/${productId}`, {
+         const response = await fetch(`<API_URL />/api/admin/products/${productId}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
          });
@@ -228,7 +228,7 @@ const ProductAdmin = () => {
    const handleToggleStatus = async (productId, currentStatus) => {
       try {
          const token = localStorage.getItem("adminToken");
-         const response = await fetch(`http://localhost:3000/api/admin/products/${productId}`, {
+         const response = await fetch(`<API_URL />/api/admin/products/${productId}`, {
             method: "PUT",
             headers: {
                "Content-Type": "application/json",

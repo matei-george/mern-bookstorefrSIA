@@ -21,7 +21,7 @@ const CardSidebar = ({ isopen, onClose }) => {
 
    const fetchCart = async () => {
       try {
-         const response = await axios.get(`<API_URL />api/cart`);
+         const response = await axios.get(`<API_URL />/api/cart`);
          if (response.data.success) {
             setCart(response.data.cart);
          }
@@ -33,7 +33,7 @@ const CardSidebar = ({ isopen, onClose }) => {
    const removeFromCart = async (productId) => {
       try {
          setLoading(true);
-         const response = await axios.delete(`<API_URL />api/cart/${productId}`);
+         const response = await axios.delete(`<API_URL />/api/cart/${productId}`);
          if (response.data.success) {
             setCart(response.data.cart);
             if (onCartUpdate) {
@@ -49,7 +49,7 @@ const CardSidebar = ({ isopen, onClose }) => {
    const handleCheckoutClick = async () => {
       try {
          setProcessingPayment(true);
-         const response = await fetch(`<API_URL />api/create-checkout-session`, {
+         const response = await fetch(`<API_URL />/api/create-checkout-session`, {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
