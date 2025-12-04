@@ -16,7 +16,7 @@ const AdminLogin = () => {
       setLoading(true);
       setError("");
       try {
-         const response = await fetch(`${API_URL}/api/admin/`, {
+         const response = await fetch(`${API_URL}/api/admin/login`, {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const AdminLogin = () => {
          if (data.success) {
             localStorage.setItem("adminToken", data.token);
             localStorage.setItem("adminUser", JSON.stringify(data.user));
-            navigate(`${API_URL}/admin/products`);
+            navigate("/admin/products");
          } else {
             setError(data.message || "Eroare la autentificare");
          }
