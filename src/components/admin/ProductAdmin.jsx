@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductAdmin.css";
-import { API_URL } from "../../config";
+import { API_URL } from "../../config.js";
 const ProductAdmin = () => {
    const [products, setProducts] = useState([]);
    const [loading, setLoading] = useState(true);
@@ -161,7 +161,7 @@ const ProductAdmin = () => {
 
       try {
          const token = localStorage.getItem("adminToken");
-         const url = editingProduct ? `<API_URL />/api/admin/products/${editingProduct.id}` : `<API_URL />/api/admin/products`;
+         const url = editingProduct ? `${API_URL}/api/admin/products/${editingProduct.id}` : `${API_URL}/api/admin/products`;
 
          const productData = {
             ...formData,
@@ -206,7 +206,7 @@ const ProductAdmin = () => {
 
       try {
          const token = localStorage.getItem("adminToken");
-         const response = await fetch(`<API_URL />/api/admin/products/${productId}`, {
+         const response = await fetch(`${API_URL}/api/admin/products/${productId}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
          });
@@ -228,7 +228,7 @@ const ProductAdmin = () => {
    const handleToggleStatus = async (productId, currentStatus) => {
       try {
          const token = localStorage.getItem("adminToken");
-         const response = await fetch(`<API_URL />/api/admin/products/${productId}`, {
+         const response = await fetch(`${API_URL}/api/admin/products/${productId}`, {
             method: "PUT",
             headers: {
                "Content-Type": "application/json",
