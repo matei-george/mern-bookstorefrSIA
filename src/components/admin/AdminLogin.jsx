@@ -29,7 +29,7 @@ const AdminLogin = () => {
          if (data.success) {
             localStorage.setItem("adminToken", data.token);
             localStorage.setItem("adminUser", JSON.stringify(data.user));
-            navigate("/admin/products");
+            navigate(`${API_URL}/admin/products`);
          } else {
             setError(data.message || "Eroare la autentificare");
          }
