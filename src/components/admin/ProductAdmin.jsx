@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductAdmin.css";
-import { API_URL } from "../../config.js";
+import { API_URL } from "../../config";
 const ProductAdmin = () => {
    const [products, setProducts] = useState([]);
    const [loading, setLoading] = useState(true);
@@ -48,7 +48,7 @@ const ProductAdmin = () => {
          if (filtersObj.search) params.append("search", filtersObj.search);
          if (filtersObj.status !== "all") params.append("status", filtersObj.status);
 
-         const response = await fetch(`API_URL${params.toString()}`, {
+         const response = await fetch(`${API_UR}${params.toString()}`, {
             headers: { Authorization: `Bearer ${token}` },
          });
 
