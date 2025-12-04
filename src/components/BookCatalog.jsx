@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchFilterSort from "./SearchFilterSort";
 import CardSidebar from "./CardSidebar";
 import "./BookCatalog.css";
+import { API_URL } from "../config";
 import { FaCartShopping } from "react-icons/fa6";
 const BookCatalog = () => {
    const [products, setProducts] = useState([]);
