@@ -22,7 +22,7 @@ const BookCatalog = () => {
             const isRecent = Date.now() - parseInt(timestamp) < 300000;
             if (isRecent) {
                try {
-                  const response = await fetch(`API_URL${sessionId}`);
+                  const response = await fetch(`${API_URL}${sessionId}`);
                   if (response.ok) {
                      const data = await response.json();
                      if (data.paymentStatus === "paid") {
