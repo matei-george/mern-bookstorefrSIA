@@ -9,7 +9,7 @@ const PaymentSuccess = () => {
       const clearCart = async () => {
          //
          try {
-            await fetch("http://localhost:3000/api/clear-cart", {
+            await fetch(API_URL, {
                method: "POST",
             });
             console.log("Coș golit după plată reușită");

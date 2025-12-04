@@ -48,7 +48,7 @@ const ProductAdmin = () => {
          if (filtersObj.search) params.append("search", filtersObj.search);
          if (filtersObj.status !== "all") params.append("status", filtersObj.status);
 
-         const response = await fetch(`http://localhost:3000/api/admin/products?${params.toString()}`, {
+         const response = await fetch(`API_URL${params.toString()}`, {
             headers: { Authorization: `Bearer ${token}` },
          });
 
